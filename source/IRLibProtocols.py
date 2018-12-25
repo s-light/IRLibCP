@@ -1,5 +1,9 @@
-# IRLibCP by Chris Young. See copyright.txt and license.txt
-# protocol identifiers
+"""
+IRLibCP by Chris Young - protocol identifiers.
+
+See copyright.txt and license.txt
+"""
+
 global Pnames
 UNKNOWN = 0
 NEC = 1

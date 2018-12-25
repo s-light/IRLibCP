@@ -1,8 +1,9 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
+"""
+IRLibCP by Chris Young - base class for decoding.
 
-# IRLibCP by Chris Young. See copyright.txt and license.txt
-# base class for decoding
+See copyright.txt and license.txt
+"""
+
 import IRrecvPCI
 import IRLibProtocols
 PERCENT_TOLERANCE = 25/100
