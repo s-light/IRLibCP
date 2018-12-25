@@ -18,11 +18,13 @@ class IRrecvPCI:
         """init."""
         self.recvPin = pin
         self.markExcess = 50
+        self.recvBuffer = None
 
     def enableIRIn(self):
         """Enable IR receiving."""
-        self.recvBuffer = pulseio.PulseIn(
-            self.recvPin, maxlen=150, idle_state=True)
+        if self.recvBuffer is None:
+            self.recvBuffer = pulseio.PulseIn(
+                self.recvPin, maxlen=150, idle_state=True)
         self.prevLength = 0
 
     def getResults(self):
@@ -56,7 +58,8 @@ class IRrecvPCI:
             # get rid of the receiver so we can reenable later using call to
             # receiver.enableIRIn()
             self.prevLength = 0
-            self.recvBuffer.deinit()
+            self.recvBuffer.clear()
+            self.recvBuffer.resume()
             return True
         else:
             # Here although length hasn't changed, let's wait a bit
